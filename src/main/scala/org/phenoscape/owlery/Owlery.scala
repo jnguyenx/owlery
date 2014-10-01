@@ -78,8 +78,7 @@ object Owlery extends MarshallableOwlery {
     val manager = createOntologyFolderManager()
     FileUtils.listFiles(new File(location), null, true).foreach(loadOntologyFromLocalFile(manager, _))
     val onts = manager.getOntologies
-    if (onts.size == 1) onts.head
-    else importAll(manager)
+    importAll(manager)
   }
 
   private[this] case class KnowledgebaseConfig(name: String, location: String, reasoner: String)
